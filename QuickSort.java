@@ -4,6 +4,15 @@ class QuickSort {
       low  --> Starting index, 
       high  --> Ending index */
     static void doSort(int [] arr, int low, int high) {
-        return;
+        if (low < high) {
+            /* pi is partitioning index, arr[pi] is
+              now at right place */
+            int pi = Partition.doPartition(arr, low, high);
+  
+            // Recursively sort elements before
+            // partition and after partition
+            doSort(arr, low, pi-1);
+            doSort(arr, pi+1, high);
+        }
     }
 }
